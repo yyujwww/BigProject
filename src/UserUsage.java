@@ -8,6 +8,7 @@ public class UserUsage {
 		this.user = user;
 	}
 	
+	
 	public void pickUpScooter(Dock dock) {
 		if(user.isBanned() == false) {
 			
