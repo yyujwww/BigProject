@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class LoginFrame {
+public class LoginFrame extends JFrame{
 
 	private JFrame frmLogin;
 	private JTextField txtInputToImmitate;
@@ -78,7 +78,14 @@ public class LoginFrame {
 				int index = DataIO.findUser(sId);
 				if(index!=-1) {
 					User user = DataIO.getUserByIndex(index);
-					new UserFrame(user);
+					if(!user.isBanned()) {
+
+						new UserFrame(user);
+						dispose();
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Sorry, you are banned.");
+					}
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "The user does not exist, please register.");

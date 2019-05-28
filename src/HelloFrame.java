@@ -62,8 +62,7 @@ public class HelloFrame extends JFrame{
 		JButton btnImTheUser = new JButton("I\u2019m the User");
 		btnImTheUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new UserFrame();
+				new LoginFrame();
 			}
 		});
 		btnImTheUser.setFont(new Font("Ink Free", Font.BOLD, 25));
