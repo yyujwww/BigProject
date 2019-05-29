@@ -1,8 +1,12 @@
 
 public class Run {
+
 	public Run(){
-		new DataIO();
-		
 	}
 
+	public void main(String[] args){
+		new DataIO();
+		new HelloFrame();
+		new SystemUsage();
+	}
 }

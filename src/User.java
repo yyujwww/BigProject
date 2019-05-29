@@ -1,3 +1,5 @@
+import java.util.Calendar;
+import java.util.Date;
 
 public class User {
 	private int qmId;
@@ -5,7 +7,83 @@ public class User {
 	private String emailAddr;
 	private boolean banned = false;
 	private int fine = 0;
+
+	public  long[7]  weekTime;
+	public long veryFirstTime;
+	public long startTime;
+    public  long onceTime;
+
+
+	今天使用的时间 加一下时间 一周时间
+
+	public void firstTimer() {
+    	this.veryFirstTime =  System.currentTimeMillis();  	
+    }
+
+	public long startTimer() {
+    	this.startTime =  System.currentTimeMillis();
+		return startTime;    	
+    }
+    
+    public long endTimer() {
+    	long endTime =  System.currentTimeMillis();
+    	long usedTime = (long) ((endTime-startTime)/1000.0);
+    	System.out.println("This is current usedTime."+usedTime);
+		return usedTime;
+    }
+
+    public void totalTime(){
+    	Date today = new Date();
+        Calendar c=Calendar.getInstance();
+        c.setTime(today);
+        int weekday=c.get(Calendar.DAY_OF_WEEK);
+
+        long endTime =  System.currentTimeMillis();
+    	long usedTime = (long) ((endTime-startTime)/1000.0);
+    	System.out.println("This is current usedTime."+usedTime);
+
+        long verytotalTime = (long) ((System.currentTimeMillis() - veryFirstTime)/1000.0);
+        if(verytotalTime >= 604800){
+        	weekTime[0] = 0;
+        	weekTime[1] = 0;
+        	weekTime[2] = 0;
+        	weekTime[3] = 0;
+        	weekTime[4] = 0;
+        	weekTime[5] = 0;
+        	weekTime[6] = 0;
+
+        	weekTime[weekday] = usedTime;
+            this.onceTime = usedTime;
+
+            if(usedTime > 1800){
+            	thid.banned =true;
+            }
+
+        }else{
+
+        	weekTime[weekday] = weekTime[weekday]+usedTime;
+        	this.onceTime = usedTime;
+
+        	if(usedTime > 1800){
+            	thid.banned =true;
+            }
+
+            if(weekTime[weekday]> 7200){
+            	thid.banned =true;
+            }
+
+        }
+        
+    }
+
+
 	
+	public long getOncetime(){
+		return onceTime;
+	}
+
+
+
 	public User(int qmId, String name, String emailAddr) {
 		this.qmId = qmId;
 		this.name = name;
