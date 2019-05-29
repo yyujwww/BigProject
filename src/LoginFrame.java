@@ -40,6 +40,11 @@ public class LoginFrame extends JFrame{
 	public LoginFrame() {
 		initialize();
 	}
+	
+	public void showFrame() {
+		LoginFrame window = new LoginFrame();
+		window.frmLogin.setVisible(true);
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -78,15 +83,10 @@ public class LoginFrame extends JFrame{
 				int index = DataIO.findUser(sId);
 				if(index!=-1) {
 					User user = DataIO.getUserByIndex(index);
-					if(!user.isBanned()) {
-
-						new UserFrame(user);
-						dispose();
-					}
-					else {
-						JOptionPane.showMessageDialog(null, "Sorry, you are banned.");
-					}
+					new UserFrame(user).showFrame();
+					dispose();
 				}
+
 				else {
 					JOptionPane.showMessageDialog(null, "The user does not exist, please register.");
 				}

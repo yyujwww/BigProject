@@ -29,7 +29,12 @@ public class SystemUsage {
 	public Scooter[] getScooters() {
 		return scooter;
 	}
+	public static Dock[] getDocks() {
+		Dock[] docks = new Dock[]{dockA,dockB,dockC};
+		return docks;
+	}
 	public static Dock getDockA() {
+		
 		return dockA;
 	}
 

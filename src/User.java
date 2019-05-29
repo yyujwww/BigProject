@@ -1,20 +1,21 @@
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable{
 	private int qmId;
 	private String name;
 	private String emailAddr;
 	private boolean banned = false;
 	private int fine = 0;
 
-	public  long[7]  weekTime = new long[7];
+	public  long[]  weekTime = new long[7];
 	public long veryFirstTime;
 	public long startTime;
     public  long onceTime;
 
 
-	ä»Šå¤©ä½¿ç”¨çš„æ—¶é—´ åŠ ä¸€ä¸‹æ—¶é—´ ä¸€å‘¨æ—¶é—´
+	//½ñÌìÊ¹ÓÃµÄÊ±¼ä ¼ÓÒ»ÏÂÊ±¼ä Ò»ÖÜÊ±¼ä
 
 	public void firstTimer() {
     	this.veryFirstTime =  System.currentTimeMillis();  	

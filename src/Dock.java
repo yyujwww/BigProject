@@ -11,6 +11,7 @@ public class Dock {
 		this.symbol = symbol;
 	}
 	
+	
 	public String getName() {
 		return this.dockName;
 	}

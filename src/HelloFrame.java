@@ -20,21 +20,28 @@ public class HelloFrame extends JFrame{
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					HelloFrame window = new HelloFrame();
-					window.frmHello.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					HelloFrame window = new HelloFrame();
+//					window.frmHello.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+		HelloFrame window = new HelloFrame();
+		window.frmHello.setVisible(true);
+		
 	}
 
 	/**
 	 * Create the application.
 	 */
+	public void showFrame() {
+		HelloFrame window = new HelloFrame();
+		window.frmHello.setVisible(true);
+	}
 	public HelloFrame() {
 		initialize();
 	}
@@ -62,7 +69,7 @@ public class HelloFrame extends JFrame{
 		JButton btnImTheUser = new JButton("I\u2019m the User");
 		btnImTheUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new LoginFrame();
+				new LoginFrame().showFrame();
 			}
 		});
 		btnImTheUser.setFont(new Font("Ink Free", Font.BOLD, 25));
