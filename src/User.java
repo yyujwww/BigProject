@@ -56,7 +56,7 @@ public class User {
             this.onceTime = usedTime;
 
             if(usedTime > 1800){
-            	thid.banned =true;
+            	this.banned =true;
             }
 
         }else{
@@ -65,11 +65,11 @@ public class User {
         	this.onceTime = usedTime;
 
         	if(usedTime > 1800){
-            	thid.banned =true;
+            	this.banned =true;
             }
 
             if(weekTime[weekday]> 7200){
-            	thid.banned =true;
+            	this.banned =true;
             }
 
         }
