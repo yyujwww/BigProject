@@ -8,7 +8,7 @@ public class User {
 	private boolean banned = false;
 	private int fine = 0;
 
-	public  long[7]  weekTime;
+	public  long[7]  weekTime = new long[7];
 	public long veryFirstTime;
 	public long startTime;
     public  long onceTime;
@@ -52,7 +52,7 @@ public class User {
         	weekTime[5] = 0;
         	weekTime[6] = 0;
 
-        	weekTime[weekday] = usedTime;
+        	weekTime[weekday-1] = usedTime;
             this.onceTime = usedTime;
 
             if(usedTime > 1800){
